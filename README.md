@@ -7,14 +7,23 @@ Usage of CLI tool:
   -help: Show help information
 ```
 
-## Update tar.gz file
+## After Code Change
+
+generate a new tar.gz file with your current code changes
 
 ```bash
-tar -czf NetProbe-1.0.0.tar.gz README.md go.mod go.sum main.go netprobe/
+git add .
+git commit -m "Your commit message"
+git tag v1.0.1
+git push origin v1.0.1
 ```
+GitHub automatically generates tar.gz files for each release of your project. You can find the new file in the "Releases" section of your GitHub repository. The URL of the file will be:
 
-## Generate sha256 hash
+https://github.com/LordMoMA/NetProbe/archive/refs/tags/v1.0.1.tar.gz
+
+
+## Generate sha256 hash using the above downloaded tarball
 
 ```bash
-shasum -a 256 NetProbe-1.0.0.tar.gz
+shasum -a 256 NetProbe-1.0.1.tar.gz
 ```
