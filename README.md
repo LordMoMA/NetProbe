@@ -13,3 +13,8 @@ Usage of CLI tool:
 tar -czf NetProbe-1.0.0.tar.gz README.md go.mod go.sum main.go netprobe/
 ```
 
+## Generate sha256 hash
+
+```bash
+shasum -a 256 NetProbe-1.0.0.tar.gz
+```
