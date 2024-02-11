@@ -14,8 +14,8 @@ generate a new tar.gz file with your current code changes
 ```bash
 git add .
 git commit -m "Your commit message"
-git tag v1.0.1
-git push origin v1.0.1
+git tag v1.0.2
+git push origin v1.0.2
 ```
 
 GitHub automatically generates tar.gz files for each release of your project. You can find the new file in the "Releases" section of your GitHub repository. The URL of the file will be:
@@ -29,4 +29,11 @@ Go to the folder where you downloaded the tarball and run the following command:
 
 ```bash
 shasum -a 256 NetProbe-1.0.1.tar.gz
+```
+
+## Update Homebrew package
+
+```bash
+brew update
+brew upgrade netprobe
 ```

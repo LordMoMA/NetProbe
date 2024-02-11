@@ -29,12 +29,13 @@ func printInterfaceStats(iface stdnet.Interface, ioCounter net.IOCountersStat) {
 	}
 
 	for _, addr := range addrs {
-		color.Cyan("Name: %v, ", iface.Name)
-		color.Blue("MTU: %v, ", iface.MTU)
-		color.Green("Flags: %v, ", iface.Flags)
-		color.Yellow("BytesSent: %v, ", ioCounter.BytesSent)
-		color.Magenta("BytesRecv: %v, ", ioCounter.BytesRecv)
-		color.Red("Address: %v\n", addr.String())
+		fmt.Printf("Name: %v, MTU: %v, Flags: %v, BytesSent: %v, BytesRecv: %v, Address: %v\n",
+			color.CyanString("%v", iface.Name),
+			color.BlueString("%v", iface.MTU),
+			color.GreenString("%v", iface.Flags),
+			color.YellowString("%v", ioCounter.BytesSent),
+			color.MagentaString("%v", ioCounter.BytesRecv),
+			color.RedString("%v", addr.String()))
 	}
 }
 
