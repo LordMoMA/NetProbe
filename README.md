@@ -14,6 +14,7 @@ generate a new tar.gz file with your current code changes
 ```bash
 git add .
 git commit -m "Your commit message"
+git push origin main
 git tag v1.0.2
 git push origin v1.0.2
 ```
