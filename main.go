@@ -5,6 +5,7 @@ import (
 	"fmt"
 	stdnet "net"
 
+	"github.com/fatih/color"
 	"github.com/shirou/gopsutil/net"
 )
 
@@ -28,8 +29,12 @@ func printInterfaceStats(iface stdnet.Interface, ioCounter net.IOCountersStat) {
 	}
 
 	for _, addr := range addrs {
-		fmt.Printf("Name: %v, MTU: %v, Flags: %v, BytesSent: %v, BytesRecv: %v, Address: %v\n",
-			iface.Name, iface.MTU, iface.Flags, ioCounter.BytesSent, ioCounter.BytesRecv, addr.String())
+		color.Cyan("Name: %v, ", iface.Name)
+		color.Blue("MTU: %v, ", iface.MTU)
+		color.Green("Flags: %v, ", iface.Flags)
+		color.Yellow("BytesSent: %v, ", ioCounter.BytesSent)
+		color.Magenta("BytesRecv: %v, ", ioCounter.BytesRecv)
+		color.Red("Address: %v\n", addr.String())
 	}
 }
 
@@ -62,15 +67,15 @@ func main() {
 	flag.Parse()
 
 	if *help {
-		fmt.Println("Usage of CLI tool:")
-		fmt.Println("  -stats: Show network statistics")
-		fmt.Println("  -help: Show help information")
+		color.Cyan("Usage of CLI tool:")
+		color.Blue("  -stats: Show network statistics")
+		color.Green("  -help: Show help information")
 		return
 	}
 
 	if *showStats {
 		printNetworkStats()
 	} else {
-		fmt.Println("Use -stats flag to show network statistics")
+		color.Red("Use -stats flag to show network statistics")
 	}
 }

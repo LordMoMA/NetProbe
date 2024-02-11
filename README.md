@@ -7,3 +7,9 @@ Usage of CLI tool:
   -help: Show help information
 ```
 
+## Update tar.gz file
+
+```bash
+tar -czf NetProbe-1.0.0.tar.gz README.md go.mod go.sum main.go netprobe/
+```
+
